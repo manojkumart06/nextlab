@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,6 +6,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Add custom utilities
+      utilities: {
+        '.no-scroll': {
+          overflow: 'hidden',
+        },
+        '.hide-background': {
+          backgroundImage: 'none !important',
+          color: 'transparent !important',
+        },
+      },
+      
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",

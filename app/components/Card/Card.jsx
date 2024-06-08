@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 
-function Card({ image, title, by, date, reward, place, tags, participants }) {
+function Card({ image, title, by, date, reward, place, tags, participants,Completed }) {
   return (
-    <div className="mb-4 pb-2 w-full">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+    <div className="mb-4 p-2 w-full transform transition-transform hover:scale-105 hover:shadow-md">
+      <div className="flex flex-col pr-4 sm:flex-row items-start sm:items-center justify-between">
         <div className="flex flex-col sm:flex-row items-start sm:items-center">
           <Image
             src={image}
@@ -14,14 +14,16 @@ function Card({ image, title, by, date, reward, place, tags, participants }) {
             className="mr-0 sm:mr-4 mb-2 sm:mb-0 rounded-[6px]"
           />
           <div className="font-inter">
-            <span className="font-semibold text-[16px] leading-[28px] text-[#252424]">{title}</span>
-            <span className="font-normal text-[12px] leading-[18px] text-[#64758B] ml-0 sm:ml-2">
+            <span className="font-semibold text-[14px] sm:text-[16px] leading-[28px] text-custom-black">{title}</span>
+            <span className="font-normal text-[10px] sm:text-[12px] leading-[18px] text-[#64758B] ml-0 sm:ml-2">
               by
-              <span className="font-semibold text-[16px] leading-[28px] text-[#94A3B8] ml-1">{by}</span>
+              <span className="font-semibold text-[14px] sm:text-[16px] leading-[28px] text-[#94A3B8] ml-1">{by}</span>
             </span>
             <div className="flex flex-wrap items-center space-x-4 mt-2">
+            {Completed && (reward || place) && (
+              <div className="flex items-center">
               {reward && (
-                <div className="flex items-center">
+              <div className="flex items-center">
                   <svg
                     width="14"
                     height="14"
@@ -34,12 +36,15 @@ function Card({ image, title, by, date, reward, place, tags, participants }) {
                       clipRule="evenodd"
                       d="M7 13.857C7.9011 13.8592 8.79377 13.6834 9.62671 13.3396C10.4596 12.9958 11.2164 12.4908 11.8536 11.8536C12.4908 11.2165 12.9958 10.4597 13.3396 9.62671C13.6834 8.79377 13.8592 7.9011 13.857 7C13.8592 6.0989 13.6834 5.20623 13.3396 4.37329C12.9958 3.54035 12.4908 2.78355 11.8536 2.14637C11.2164 1.50919 10.4596 1.00419 9.62671 0.660391C8.79377 0.316588 7.9011 0.140757 7 0.143C6.09889 0.140757 5.20623 0.316588 4.37328 0.660391C3.54034 1.00419 2.78354 1.50919 2.14636 2.14637C1.50919 2.78355 1.00419 3.54035 0.660387 4.37329C0.316584 5.20623 0.140754 6.0989 0.142996 7C0.140754 7.9011 0.316584 8.79377 0.660387 9.62671C1.00419 10.4597 1.50919 11.2165 2.14636 11.8536C2.78354 12.4908 3.54034 12.9958 4.37328 13.3396C5.20623 13.6834 6.09889 13.8592 7 13.857ZM8.886 8.084C8.886 7.086 8.286 6.743 7.086 6.601C6.229 6.486 6.057 6.258 6.057 5.856C6.057 5.457 6.344 5.2 6.914 5.2C7.429 5.2 7.716 5.371 7.857 5.8C7.887 5.886 7.973 5.941 8.059 5.941H8.513C8.53927 5.94181 8.56544 5.9373 8.58993 5.92774C8.61442 5.91817 8.63672 5.90376 8.6555 5.88536C8.67428 5.86695 8.68914 5.84495 8.69919 5.82065C8.70924 5.79636 8.71428 5.77029 8.714 5.744V5.714C8.599 5.084 8.084 4.484 7.429 4.428V3.798C7.429 3.683 7.343 3.597 7.201 3.571H6.824C6.709 3.571 6.601 3.657 6.572 3.798V4.428C5.714 4.544 5.144 5.2 5.144 5.916C5.144 6.858 5.71399 7.227 6.914 7.373C7.716 7.514 7.973 7.686 7.973 8.144C7.973 8.598 7.57 8.916 7.03 8.916C6.284 8.916 6.027 8.598 5.942 8.17C5.916 8.058 5.83 7.998 5.744 7.998H5.256C5.22962 7.99771 5.20346 8.00278 5.1791 8.01289C5.15474 8.02301 5.13268 8.03796 5.11427 8.05684C5.09585 8.07572 5.08146 8.09815 5.07196 8.12275C5.06246 8.14736 5.05805 8.17364 5.059 8.2V8.23C5.17 8.941 5.629 9.43 6.572 9.571V10.206C6.572 10.321 6.657 10.398 6.799 10.428H7.21C7.321 10.428 7.399 10.351 7.429 10.206V9.571C8.286 9.43 8.886 8.856 8.886 8.084ZM4.114 10.22C4.529 10.6 5.014 10.894 5.543 11.085C5.629 11.145 5.714 11.257 5.714 11.342V11.745C5.714 11.801 5.714 11.831 5.684 11.856C5.659 11.972 5.543 12.028 5.427 11.972C4.38721 11.6409 3.4797 10.9876 2.83571 10.1066C2.19172 9.22569 1.84462 8.16274 1.84462 7.0715C1.84462 5.98026 2.19172 4.91731 2.83571 4.03636C3.4797 3.15541 4.38721 2.50213 5.427 2.171C5.457 2.145 5.513 2.145 5.543 2.145C5.659 2.171 5.714 2.256 5.714 2.372V2.771C5.714 2.916 5.659 3.002 5.543 3.058C4.95862 3.26868 4.42781 3.60548 3.9883 4.04447C3.54879 4.48346 3.21136 5.01387 3 5.598C2.70535 6.39166 2.65387 7.25511 2.8521 8.07816C3.05034 8.90121 3.48931 9.64653 4.113 10.219M8.315 2.285C8.34 2.17 8.456 2.114 8.572 2.17C9.35742 2.42564 10.0705 2.86505 10.6519 3.45171C11.2334 4.03837 11.6664 4.75533 11.915 5.543C12.1202 6.18639 12.1966 6.86393 12.1396 7.53686C12.0827 8.20978 11.8936 8.86487 11.5832 9.46462C11.2727 10.0644 10.8471 10.597 10.3306 11.0321C9.81404 11.4671 9.21679 11.796 8.573 12C8.543 12.026 8.487 12.026 8.457 12.026C8.341 12 8.286 11.915 8.286 11.799V11.4C8.286 11.255 8.341 11.169 8.457 11.113C9.04137 10.9023 9.57218 10.5655 10.0117 10.1265C10.4512 9.68754 10.7886 9.15713 11 8.573C11.196 8.04608 11.2856 7.48556 11.2637 6.92381C11.2418 6.36206 11.1089 5.81021 10.8725 5.30013C10.6362 4.79005 10.3011 4.33185 9.88669 3.95199C9.47226 3.57213 8.98668 3.27814 8.458 3.087C8.372 3.027 8.287 2.915 8.287 2.8V2.4C8.287 2.34 8.287 2.314 8.317 2.284" fill="#2775CA"/>
                   </svg>
-                  <div className="font-normal ml-1 text-[14px] w-[120px] leading-[16px] text-[#64758B]">
+                  <div className="font-normal ml-1 text-[14px] sm:text-[14px] w-[120px] leading-[16px] text-[#64758B] mr-[-50px]">
                     <span className="font-semibold text-[#252424]">{reward}</span>
-                    <span className="text-[#252424]"> USDC</span>
+                    <span className="text-[#94A3B8]"> USDC</span>
                   </div>
-                </div>
-              )}
+                  </div>
+                )}
+              {reward && place &&
+              <div className="w-6 h-0 border border-[#EBEBEB] rotate-90 flex items-center"></div>
+              }
               {place && (
                 <div className="flex items-center">
                   <svg
@@ -54,22 +59,52 @@ function Card({ image, title, by, date, reward, place, tags, participants }) {
                       fill="#64758B"
                     />
                   </svg>
-                  <div className="font-normal ml-1 text-[14px] leading-[16px] text-[#64758B]">{place}</div>
+                  <div className="font-normal ml-1 text-[12px] sm:text-[14px] leading-[16px] text-[#64758B]">{place}</div>
                 </div>
               )}
-              <div className="flex flex-wrap space-x-2">
-                {tags.map((tag, index) => (
-                  <span key={index} className="bg-blue-200 rounded-full px-2 py-1 text-xs">
+            </div>
+              )}
+            <div className="flex flex-wrap space-x-4 mt-2 sm:mt-0">
+            {tags.map((tag, index) => {
+                let bgColor, textColor;
+                switch (tag.toLowerCase()) {
+                case 'frontend':
+                    bgColor = '#EBF3FF';
+                    textColor = '#3EA7FF';
+                    break;
+                case 'backend':
+                    bgColor = '#FFF2EB';
+                    textColor = '#FF8370';
+                    break;
+                case 'content':
+                    bgColor = '#EFF6F8';
+                    textColor = '#5EA8C4';
+                    break;
+                case 'design':
+                    bgColor = '#F2EDFF';
+                    textColor = '#8948F2';
+                    break;
+                case 'blockchain':
+                    bgColor = '#FFEBF9';
+                    textColor = '#FF3EC9';
+                    break;
+                default:
+                    bgColor = '#EBF3FF';
+                    textColor = '#3EA7FF';
+                }
+                return (
+                <span key={index} className=" px-2 py-1 text-xs flex items-center justify-center font-inter font-normal" style={{ width: '77px', height: '24px', letterSpacing: '0.01em', backgroundColor: bgColor, color: textColor }}>
                     {tag}
-                  </span>
-                ))}
-              </div>
+                </span>
+                );
+            })}
+            </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-start sm:items-end mt-2 sm:mt-0">
-          <span className="font-normal text-[16px] leading-[22px] text-[#64758B]">{date}</span>
-          <span className="font-normal text-[16px] leading-[20px] text-[#64758B]">
+        <div className="flex flex-col items-start sm:items-end mt-2 sm:mt-0 text-[13px] sm:text-[16px]">
+          <span className="font-normal mb-2 leading-[22px] text-[#64758B]">{date}</span>
+          <span className="font-normal leading-[20px] text-[#64758B]">
             <span className="font-semibold text-[#252424]">{participants}</span> Participants
           </span>
         </div>
