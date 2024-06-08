@@ -2,6 +2,10 @@ import superteam from '../images/superteam.png'
 import deanlist from '../images/deanlist.png'
 import deribet from '../images/deribet.png'
 import pstake from '../images/pstake.png'
+import viewprofile from '../images/viewprofile.png'
+import dashboard from '../images/dashboard.png'
+import code from '../images/code.png'
+import logout from '../images/logout.png'
 
 export const data = [
     {
@@ -46,3 +50,31 @@ export const data = [
     }
   ]
   
+
+export const users = [
+    { fname: 'Olivia', lname : 'Rhye', email: 'olivia@jiffyscan.xyz',
+        children : [
+            {
+                label: 'View profile',
+                link : '#' ,
+                image : viewprofile,
+            },
+            {
+                label: 'Dashboard',
+                link : '#' ,
+                image :dashboard,
+            },
+            {
+                label: 'API',
+                link : '#' ,
+                image : code,
+            },
+            {
+                label: 'Log out',
+                link : '#' ,
+                image : logout,
+            },
+
+        ]
+     },
+  ]
