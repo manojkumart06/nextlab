@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Card from '../Card/Card';
 import { data } from '@/app/assets/data/data';
 
-const Tab = () => {
+const Tab = ({ isSideMenuOpen }) => {
     const [selectedTag, setSelectedTag] = useState(null);
     const [activeTab, setActiveTab] = useState('Completed');
     const uniqueTags = [...new Set(data.flatMap(item => item.tags))];
@@ -19,7 +19,8 @@ const Tab = () => {
     };
     
   return (
-    <div className="mx-auto flex flex-col w-full max-w-7xl px-4 py-2 text-sm">
+    
+    <div className={`mx-auto flex flex-col w-full max-w-7xl px-4 py-2 text-sm ${isSideMenuOpen ? 'hidden md:flex' : ''}`}>
       <section className="flex flex-wrap items-center gap-2">
         <div className="flex items-center gap-2 flex-wrap">
           <div className="font-inter font-semibold text-20px text-custom-black">Work History</div>
@@ -33,7 +34,7 @@ const Tab = () => {
             In Review
             </div>
         </div>
-        <div className="flex items-center gap-1 ml-auto">
+        <div className="flex items-center gap-1 ml-[0px] sm:ml-auto">
         <div className="w-6 h-0 border border-[#EBEBEB] rotate-90"></div>
           <div className="flex items-center  cursor-pointer gap-2">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +54,7 @@ const Tab = () => {
           </div>
         </div>
         <div className="relative">
-            <div className="w-[600px] h-0 border border-[#EBEBEB] absolute top-[280px] left-[-290px] rotate-90"></div>
+            <div className="w-[600px] h-0 ml-[200px] sm:ml-auto border border-[#EBEBEB] absolute top-[280px] left-[-290px] rotate-90"></div>
         </div>
         <div className="flex items-center w-full sm:w-[320px] h-[40px] ml-5 bg-[#F1F5F9] border-2 border-[#F1F5F9] rounded-full shadow-sm">
           <div className="flex items-center gap-2 px-3">
@@ -68,8 +69,10 @@ const Tab = () => {
             className="flex-grow mr-1 bg-[#F1F5F9] placeholder-gray-500 text-sm leading-8 font-inter font-normal focus:outline-none"
             placeholder="Search Bounties, Profiles, and more..."
           />
-        </div>
+           
+        </div> 
       </section>
+    
       {/* Line that appears below the active tab */}
       <div className="relative">
                 {activeTab === 'Completed' && <div className="absolute my-2 w-[90px] border-2 border-[#6366F1] left-[165px]"></div>}
@@ -77,7 +80,7 @@ const Tab = () => {
       </div>
       <div className="my-2 w-full max-w-[900px] border border-[#EBEBEB]"></div>
 
-      <div className="flex flex-col mt-2 ml-3 max-w-[860px] h-[116px]">
+      <div className="flex-col mt-2 ml-3 max-w-[860px] h-[116px]">
       {data.map((c, i) => {
           // Render only the cards with the selected tag or all cards if no tag is selected
           if (!selectedTag || c.tags.includes(selectedTag)) {
@@ -100,7 +103,7 @@ const Tab = () => {
         })}
       </div>
     </div>
-  );
+)
 };
 
 export default Tab;

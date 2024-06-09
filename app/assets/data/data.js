@@ -7,6 +7,16 @@ import dashboard from '../images/dashboard.png'
 import code from '../images/code.png'
 import logout from '../images/logout.png'
 
+// Navigation items for the navbar
+export const navItems = [
+  { label: "Home", link: "#" },
+  { label: "Blockchain", link: "#" },
+  { label: "Developers", link: "#" },
+  { label: "More", link: "#" },
+  { label: "About", link: "#" }
+];
+
+// Data for different projects or contests
 export const data = [
     {
       "image": superteam, 
@@ -50,7 +60,7 @@ export const data = [
     }
   ]
   
-
+// Data for user information including nested menu items
 export const users = [
     { fname: 'Olivia', lname : 'Rhye', email: 'olivia@jiffyscan.xyz',
         children : [
