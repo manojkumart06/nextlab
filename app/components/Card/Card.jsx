@@ -15,7 +15,7 @@ function Card({ image, title, by, date, reward, place, tags, participants,Comple
           />
           <div className="font-inter">
             <span className="font-semibold text-[14px] sm:text-[16px] leading-[28px] text-custom-black">{title}</span>
-            <span className="font-normal text-[10px] sm:text-[12px] leading-[18px] text-[#64758B] ml-0 sm:ml-2">
+            <span className="font-normal text-[10px] sm:text-[12px] leading-[18px] text-[#64758B] ml-2">
               by
               <span className="font-semibold text-[14px] sm:text-[16px] leading-[28px] text-[#94A3B8] ml-1">{by}</span>
             </span>

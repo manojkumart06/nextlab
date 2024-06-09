@@ -10,9 +10,9 @@ const SearchBar = ({isVisibleNav}) => {
   };
 
   return (
-    <div className={`items-center justify-between w-[300px] h-[40px] bg-white border-2 border-gray-300 rounded-full shadow-sm transition-all hover:shadow-md focus-within:border-[#195BDF] focus-within:shadow-md hover:border-orange-200 ${isVisibleNav ? 'hidden md:flex' : ''}`}>
-      <div className="flex items-center gap-4 w-full px-3">
-        <div className="flex items-center gap-1">
+    <div className={`items-center justify-between w-[220px] sm:w-[300px] h-[40px] bg-white border-2 border-gray-300 rounded-full shadow-sm transition-all hover:shadow-md focus-within:border-[#195BDF] focus-within:shadow-md hover:border-orange-200 ${isVisibleNav ? 'hidden md:flex' : ''}`}>
+      <div className="flex items-center gap-2 sm:gap-4  w-full px-3">
+        <div className="flex items-center gap-0 sm:gap-1">
           <div className="w-[25px] h-[25px] relative flex items-center justify-center">
             <svg width="15" height="22" viewBox="0 0 15 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path opacity="0.2" d="M4.27087 21.4165L5.62504 14.3481L0.208374 12.2276L9.68754 1.62488L8.33337 8.69333L13.75 10.8139L4.27087 21.4165Z" fill="#FFB300"/>
@@ -30,7 +30,7 @@ const SearchBar = ({isVisibleNav}) => {
           type="text"
           name="search"
           id="search"
-          className="w-full placeholder-gray-500 text-sm leading-8 font-inter font-normal focus:outline-none focus:border-none"
+          className="w-full placeholder-gray-500 text-[12px] sm:text-sm leading-8 font-inter font-normal focus:outline-none focus:border-none"
           placeholder="Search an userOp"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
