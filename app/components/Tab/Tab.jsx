@@ -54,7 +54,7 @@ const Tab = ({ isSideMenuOpen }) => {
           </div>
         </div>
         <div className="relative">
-            <div className="w-[600px] h-0 ml-[200px] sm:ml-auto border border-[#EBEBEB] absolute top-[280px] left-[-290px] rotate-90"></div>
+            <div className="w-[600px] h-0 ml-[255px] sm:ml-auto border border-[#EBEBEB] absolute top-[280px] left-[-290px] rotate-90"></div>
         </div>
         <div className="flex items-center w-full sm:w-[320px] h-[40px] ml-5 bg-[#F1F5F9] border-2 border-[#F1F5F9] rounded-full shadow-sm">
           <div className="flex items-center gap-2 px-3">

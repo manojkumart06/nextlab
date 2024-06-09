@@ -35,7 +35,7 @@ export default function Home() {
   }
 
   return (
-    <div className={`h-screen ${theme === 'light' ? 'bg-none' : 'bg-[#EBF3FF]'}`}>
+    <div className={`h-screen  ${theme === 'light' ? 'bg-none' : 'bg-[#EBF3FF]'}`}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
