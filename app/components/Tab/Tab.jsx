@@ -69,12 +69,11 @@ const Tab = ({ isSideMenuOpen }) => {
             className="flex-grow mr-1 bg-[#F1F5F9] placeholder-gray-500 text-sm leading-8 font-inter font-normal focus:outline-none"
             placeholder="Search Bounties, Profiles, and more..."
           />
-           
         </div> 
       </section>
     
       {/* Line that appears below the active tab */}
-      <div className="relative">
+      <div className="relative hidden sm:block">
                 {activeTab === 'Completed' && <div className="absolute my-2 w-[90px] border-2 border-[#6366F1] left-[165px]"></div>}
                 {activeTab === 'In Review' && <div className="absolute my-2 w-[90px] border-2 border-[#6366F1] left-[255px]"></div>}
       </div>
